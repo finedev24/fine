@@ -1,18 +1,38 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import { useEffect } from "react";
+import { Routes, Route, useNavigate } from "react-router-dom";
+
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import NotFound from "./pages/NotFound";
+
+import { supabase } from "./supabase/supabase.config";
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    supabase.auth.onAuthStateChange((event, session) => {
+      if(!session){
+        navigate('/login')
+      } else {
+        navigate('/')
+      }
+    })
+  }, []);
 
   return (
     <>
-      <div className='App'>
-        <h1>Hello world</h1>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
