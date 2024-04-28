@@ -1,0 +1,123 @@
+input[type="radio"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  margin: 0;
+  font: inherit;
+  color: #a0eebc;
+  width: 8px;
+  height: 8px;
+  border: 0.5px solid #a0eebc;
+  border-radius: 50%;
+  transform: translateY(50%);
+  display: grid;
+  place-content: center;
+  padding: 12px;
+}
+
+input[type="radio"]::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em #a0eebc;
+  background-color: CanvasText;
+}
+
+input[type="radio"]:checked::before {
+  transform: scale(1);
+}
+.list {
+  position: relative;
+  color: #9aa2c3;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: 0.5px solid #78809b;
+  border-radius: 16px;
+  padding-right: 16px;
+  margin-bottom: 12px;
+  line-height: 1.2em;
+  cursor: pointer;
+}
+
+.list img {
+  margin-right: 48px;
+}
+
+/* .list.selected::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 16px;
+    width: 16px;
+    height: 16px;
+    border: 0.5px solid #A0EEBC;
+    border-radius: 50%;
+    background-color: #A0EEBC;
+}
+
+
+.list::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 16px;
+    width: 16px;
+    height: 16px;
+    border: 0.5px solid #78809B;
+    border-radius: 50%;
+    background-color: transparent;
+} */
+
+.list.selected {
+  border: 0.5px solid #4e76ef;
+  border-radius: 16px;
+  background: linear-gradient(
+    90deg,
+    rgba(78, 118, 239, 0.1) 0%,
+    rgba(130, 205, 211, 0.1) 50%,
+    rgba(160, 238, 188, 0.1) 100%
+  );
+  backdrop-filter: blur(6px);
+}
+
+.list label {
+  padding: 12px;
+}
+
+.listw {
+  color: #9aa2c3;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.listwelement {
+  border: 0.5px solid #78809b;
+  border-radius: 16px;
+  padding: 12px;
+  width: 100%;
+  margin-right: 12px;
+  text-align: center;
+}
+
+.listwelement input[type="radio"]{ 
+    display: none;
+}
+
+.listwelement.selected {
+  border: 0.5px solid #4e76ef;
+  border-radius: 16px;
+  background: linear-gradient(
+    90deg,
+    rgba(78, 118, 239, 0.1) 0%,
+    rgba(130, 205, 211, 0.1) 50%,
+    rgba(160, 238, 188, 0.1) 100%
+  );
+  backdrop-filter: blur(6px);
+}
