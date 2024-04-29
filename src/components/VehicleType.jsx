@@ -24,6 +24,11 @@ function VehicleType() {
 
   return (
     <div>
+      <div className={styles.ProgressBar}>
+        <div className={styles.pb13}></div>
+        <div className={styles.pb23}></div>
+        <div className={styles.pb33}></div>
+      </div>
       <h2>Vehicle</h2>
       <p>Select your type of vehicle</p>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -42,7 +47,7 @@ function VehicleType() {
               id="sedan"
               type="radio"
               value="sedan"
-              name="vehicle"
+              name="vehicle"  
               {...register("vehicle")}
             />
           </label>

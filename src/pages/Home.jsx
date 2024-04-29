@@ -3,7 +3,8 @@ import React from 'react'
 import { useEffect } from 'react'
 import { supabase } from '../supabase/supabase.config'
 import { useNavigate } from 'react-router-dom'
-import Order from '../components/Order'
+import Address from '../components/Address'
+import styles from '../styles/Home.module.css'
 
 export default function Home() {
 
@@ -16,12 +17,11 @@ export default function Home() {
   }, [navigate])
 
   return (
-    <div>
-      Home
-      <button onClick={()=> supabase.auth.signOut()}>
-        Logout
+    <div className={styles.container}>
+      <button className={styles.logout} onClick={()=> supabase.auth.signOut()}>
+        Other phone number
       </button>
-      <Order/>
+      <Address />
     </div>
   )
 }

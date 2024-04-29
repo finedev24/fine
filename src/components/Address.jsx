@@ -4,10 +4,9 @@ import { useForm } from "react-hook-form";
 import { useRegFormContext } from "../providers/RegFormProvider";
 import { useNavigate } from "react-router-dom";
 
-import Order from "../components/Order"
+import Order from "../components/Order";
 
 function Address() {
-
   const navigate = useNavigate();
 
   const [, dispatch] = useRegFormContext();
@@ -20,7 +19,7 @@ function Address() {
     if (isValid) {
       dispatch({ type: "SET_ADDRES_DATA", data: values });
     }
-    navigate('/vehicle')
+    navigate("/vehicle");
   };
 
   return (
@@ -44,8 +43,6 @@ function Address() {
         ></input>
         <button>Enviar</button>
       </form>
-      <hr />
-      <Order />
     </div>
   );
 }

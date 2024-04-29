@@ -46,36 +46,38 @@ input[type="radio"]:checked::before {
   cursor: pointer;
 }
 
+.ProgressBar {
+  border-radius: 99px;
+  min-height: 2vh;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 10px;
+  grid-row-gap: 0px;
+  border-radius: 99px;
+}
+
+.pb13 {
+  background: linear-gradient(90deg, #4E76EF 0%, #82CDD3 209.96%, #A0EEBC 319.74%);
+  height: 2vh;
+  border-radius: 99px;
+}
+
+.pb23 {
+  background: linear-gradient(90deg, #4E76EF -109.87%, #82CDD3 98.36%, #A0EEBC 207.24%);
+  height: 2vh;
+  border-radius: 99px;
+}
+
+.pb33 {
+  background-color: #2D344C;
+  height: 2vh;
+  border-radius: 99px;
+}
+
 .list img {
   margin-right: 48px;
 }
-
-/* .list.selected::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 16px;
-    width: 16px;
-    height: 16px;
-    border: 0.5px solid #A0EEBC;
-    border-radius: 50%;
-    background-color: #A0EEBC;
-}
-
-
-.list::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 16px;
-    width: 16px;
-    height: 16px;
-    border: 0.5px solid #78809B;
-    border-radius: 50%;
-    background-color: transparent;
-} */
 
 .list.selected {
   border: 0.5px solid #4e76ef;

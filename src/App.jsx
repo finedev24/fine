@@ -29,7 +29,6 @@ function App() {
         <div className="App">
           <Layout>
             <Outlet />
-            <Order/>
           </Layout>
         </div>
       </RegFormProvider>
