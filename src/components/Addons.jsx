@@ -8,21 +8,48 @@ function Addons() {
   const addons = [
     {
       id: 1,
-      name: "Exterior detailing",
-      description: "Golden Hour",
-      price: 10.99,
+      name: "Engine detail",
+      price: 60,
     },
     {
       id: 2,
-      name: "Interior detailing",
-      description: "Swagger-Up",
-      price: 15.99,
+      name: "Paint water spot removal",
+      price: 50,
     },
     {
       id: 3,
-      name: "Full detailing",
-      description: "Fine my Ride (exterior & interior)",
-      price: 20.99,
+      name: "Headlight restoration",
+      price: 50,
+    },
+    {
+      id: 4,
+      name: "Shampoo Mats",
+      price: 50,
+    },
+    {
+      id: 5,
+      name: "Interior leather conditioning",
+      price: 50,
+    },
+    {
+      id: 6,
+      name: "Pet hair removal",
+      price: 50,
+    },
+    {
+      id: 7,
+      name: "Odor removal",
+      price: 100,
+    },
+    {
+      id: 8,
+      name: "Baby car seat sanitization",
+      price: 50,
+    },
+    {
+      id: 9,
+      name: "Clay bar treatment and polish (Paint correction)",
+      price: 250,
     },
   ];
 
@@ -77,15 +104,12 @@ function Addons() {
                       <p>{service.description}</p>
                       <input
                         id={service.id}
-                        type="radio"
+                        type="checkbox"
                         value={service.id}
                         name="service"
                         {...register("service")}
                       />
                     </label>
-                  </div>
-                  <div className={styles.listSectionContent}>
-                    <button>View more</button>
                     <span>{service.price}</span>
                   </div>
                 </div>
