@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import styles from "../styles/VehicleType.module.css";
+import { useForm } from "react-hook-form";
+import { useRegFormContext } from "../providers/RegFormProvider";
+import { useNavigate } from "react-router-dom";
 
 import imgSedan from "../assets/sedan.png";
 import imgSuv from "../assets/suv.png";
@@ -7,141 +10,175 @@ import imgTruck from "../assets/truck.png";
 import imgMotorcycle from "../assets/motorcycle.png";
 
 function VehicleType() {
+  const navigate = useNavigate();
   const [selectedVehicle, setSelectedVehicle] = useState("");
-  const [selectedVehicleType, setSelectedVehicleType] = useState("");
+  const [vehicleNature, setVehicleNature] = useState("");
 
-  const handleVehicleClick = (value) => {
-    setSelectedVehicle(value);
-  };
-
-  const handleVehicleTypeClick = (value) => {
-    setSelectedVehicleType(value);
+  const [, dispatch] = useRegFormContext();
+  const { register, handleSubmit } = useForm();
+  const onSubmit = (values) => {
+    dispatch({ type: "SET_VEHICLE_DATA", data: values });
+    navigate("/services");
+    console.log(values);
   };
 
   return (
     <div>
       <h2>Vehicle</h2>
       <p>Select your type of vehicle</p>
-      <form>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div
           className={`${styles.list} ${
             selectedVehicle === "sedan" ? styles.selected : ""
           }`}
-          onClick={() => handleVehicleClick("sedan")}
+          onClick={() => {
+            setSelectedVehicle("sedan");
+            document.getElementById("sedan").click();
+          }}
         >
-          <label>Sedans</label>
-          <img src={imgSedan} />
-          <input
-            type="radio"
-            value="sedan"
-            name="vehicle"
-            checked={selectedVehicle === "sedan"}
-            onChange={() => {}}
-          />
+          <label htmlFor="sedan" style={{ cursor: "pointer" }}>
+            Sedans
+            <input
+              id="sedan"
+              type="radio"
+              value="sedan"
+              name="vehicle"
+              {...register("vehicle")}
+            />
+          </label>
+          <img src={imgSedan} alt="Sedan" />
         </div>
 
         <div
           className={`${styles.list} ${
             selectedVehicle === "suv" ? styles.selected : ""
           }`}
-          onClick={() => handleVehicleClick("suv")}
+          onClick={() => {
+            setSelectedVehicle("suv");
+            document.getElementById("suv").click();
+          }}
         >
-          <label>SUV's</label>
-          <img src={imgSuv} />
-          <input
-            type="radio"
-            value="suv"
-            name="vehicle"
-            checked={selectedVehicle === "suv"}
-            onChange={() => {}}
-          />
+          <label htmlFor="suv" style={{ cursor: "pointer" }}>
+            SUV's
+            <input
+              id="suv"
+              type="radio"
+              value="suv"
+              name="vehicle"
+              {...register("vehicle")}
+            />
+          </label>
+          <img src={imgSuv} alt="suv" />
         </div>
 
         <div
           className={`${styles.list} ${
             selectedVehicle === "truck" ? styles.selected : ""
           }`}
-          onClick={() => handleVehicleClick("truck")}
+          onClick={() => {
+            setSelectedVehicle("truck");
+            document.getElementById("truck").click();
+          }}
         >
-          <label>
-            Trucks &<br />
-            3Rows SUVs
+          <label htmlFor="truck" style={{ cursor: "pointer" }}>
+            Trucks & 3Rows SUVs
+            <input
+              id="truck"
+              type="radio"
+              value="truck"
+              name="vehicle"
+              {...register("vehicle")}
+            />
           </label>
-          <img src={imgTruck} />
-          <input
-            type="radio"
-            value="truck"
-            name="vehicle"
-            checked={selectedVehicle === "truck"}
-            onChange={() => {}}
-          />
+          <img src={imgTruck} alt="truck" />
         </div>
 
         <div
           className={`${styles.list} ${
             selectedVehicle === "motorcycle" ? styles.selected : ""
           }`}
-          onClick={() => handleVehicleClick("motorcycle")}
+          onClick={() => {
+            setSelectedVehicle("motorcycle");
+            document.getElementById("motorcycle").click();
+          }}
         >
-          <label>Motorcycle</label>
-          <img src={imgMotorcycle} />
-          <input
-            type="radio"
-            value="motorcycle"
-            name="vehicle"
-            checked={selectedVehicle === "motorcycle"}
-            onChange={() => {}}
-          />
+          <label htmlFor="motorcycle" style={{ cursor: "pointer" }}>
+            Motorcycle
+            <input
+              id="motorcycle"
+              type="radio"
+              value="motorcycle"
+              name="vehicle"
+              {...register("vehicle")}
+            />
+          </label>
+          <img src={imgMotorcycle} alt="motorcycle" />
         </div>
 
         <p>What is the nature of your vehicle?</p>
+
         <div className={styles.listw}>
           <div
             className={`${styles.listwelement} ${
-              selectedVehicleType === "electric" ? styles.selected : ""
+              vehicleNature === "electric" ? styles.selected : ""
             }`}
-            onClick={() => handleVehicleTypeClick("electric")}
+            onClick={() => {
+              setVehicleNature("electric");
+              document.getElementById("electric").click();
+            }}
           >
-            <label>Electric</label>
-            <input
-              type="radio"
-              value="electric"
-              name="vehicletype"
-              checked={selectedVehicleType === "electric"}
-              onChange={() => {}}
-            />
+            <label htmlFor="electric">
+              Electric
+              <input
+                id="electric"
+                type="radio"
+                value="electric"
+                name="vehicletype"
+                {...register("vehicletype")}
+              />
+            </label>
           </div>
 
           <div
             className={`${styles.listwelement} ${
-              selectedVehicleType === "hybrid" ? styles.selected : ""
+              vehicleNature === "hybrid" ? styles.selected : ""
             }`}
-            onClick={() => handleVehicleTypeClick("hybrid")}
+            onClick={() => {
+              setVehicleNature("hybrid");
+              document.getElementById("hybrid").click();
+            }}
           >
-            <label>Hybrid</label>
-            <input
-              type="radio"
-              value="hybrid"
-              name="vehicletype"
-              checked={selectedVehicleType === "hybrid"}
-              onChange={() => {}}
-            />
+            <label htmlFor="hybrid">
+              Hybrid
+              <input
+                id="hybrid"
+                type="radio"
+                value="hybrid"
+                name="vehicletype"
+                {...register("vehicletype")}
+              />
+            </label>
           </div>
 
           <div
             className={`${styles.listwelement} ${
-              selectedVehicleType === "gas" ? styles.selected : ""
+              vehicleNature === "gas" ? styles.selected : ""
             }`}
-            onClick={() => handleVehicleTypeClick("gas")}
+            onClick={() => {
+              setVehicleNature("gas");
+              document.getElementById("gas").click();
+            }}
           >
-            <label>Gas</label>
-            <input
-              type="radio"
-              value="gas"
-              name="vehicletype"
-              checked={selectedVehicleType === "gas"}
-              onChange={() => {}}
-            />
+            <label htmlFor="gas">
+              Gas
+              <input
+                id="gas"
+                type="radio"
+                value="gas"
+                name="vehicletype"
+                {...register("vehicletype")}
+              />
+            </label>
           </div>
         </div>
 
