@@ -43,7 +43,7 @@ function SelectService() {
     if (isValid) {
       dispatch({ type: "SET_SERVICE_DATA", data: values });
     }
-    navigate("/");
+    navigate("/addons");
     console.log(values)
   };
 

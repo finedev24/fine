@@ -17,6 +17,9 @@ const reducer = (state, action) => {
         case 'SET_SERVICE_DATA': {
             return { ...state, service: { ...action.data } };
         }
+        case 'SET_ADDONS_DATA': {
+            return { ...state, service: { ...action.data } };
+        }
         case 'CHANGE_PERCENT': {
             return { ...state, percent: action.data };
         }

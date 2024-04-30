@@ -53,9 +53,14 @@ function Addons() {
     },
   ];
 
-  const [selectedService, setSelectedService] = useState("");
-  const handleServiceClick = (value) => {
-    setSelectedService(value);
+  const [selectedAddons, setSelectedAddons] = useState([]);
+
+  const handleAddonClick = (addonId) => {
+    if (selectedAddons.includes(addonId)) {
+      setSelectedAddons(selectedAddons.filter((id) => id !== addonId));
+    } else {
+      setSelectedAddons([...selectedAddons, addonId]);
+    }
   };
 
   const navigate = useNavigate();
@@ -68,7 +73,7 @@ function Addons() {
   } = useForm();
   const onSubmit = (values) => {
     if (isValid) {
-      dispatch({ type: "SET_SERVICE_DATA", data: values });
+      dispatch({ type: "SET_ADDONS_DATA", data: { addon: selectedAddons } });
     }
     navigate("/");
     console.log(values);
@@ -86,31 +91,32 @@ function Addons() {
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
           <div>
-            {addons.map((service) => (
+            {addons.map((addon) => (
               <div
-                key={service.id}
+                key={addon.id}
                 className={`${styles.list} ${
-                  selectedService === service.id ? styles.selected : ""
+                  selectedAddons.includes(addon.id) ? styles.selected : ""
                 }`}
                 onClick={() => {
-                  setSelectedService(service.id);
-                  document.getElementById(service.id).click();
+                  handleAddonClick(addon.id)
+                  document.getElementById(addon.id).click();
                 }}
               >
                 <div className={styles.listSection}>
-                  <div className={styles.listSectionTitle}>
-                    <label htmlFor={service.id} style={{ cursor: "pointer" }}>
-                      {service.name}
-                      <p>{service.description}</p>
-                      <input
-                        id={service.id}
-                        type="checkbox"
-                        value={service.id}
-                        name="service"
-                        {...register("service")}
-                      />
+                  <div className={styles.listSectionLabel}>
+                    <label htmlFor={addon.id} style={{ cursor: "pointer" }}>
+                      {addon.name}
                     </label>
-                    <span>{service.price}</span>
+                  </div>
+                  <div className={styles.listSectionContent}>
+                    <span>${addon.price}</span>
+                    <input
+                      id={addon.id}
+                      type="checkbox"
+                      value={addon.id}
+                      name="addon"
+                      {...register("addon")}
+                    />
                   </div>
                 </div>
               </div>
@@ -118,7 +124,7 @@ function Addons() {
           </div>
         </div>
 
-        <button>Enviar</button>
+        <button type="submit">Enviar</button>
       </form>
     </div>
   );
