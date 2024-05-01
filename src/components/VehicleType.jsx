@@ -47,7 +47,7 @@ function VehicleType() {
               id="sedan"
               type="radio"
               value="sedan"
-              name="vehicle"  
+              name="vehicle"
               {...register("vehicle")}
             />
           </label>
@@ -187,7 +187,11 @@ function VehicleType() {
           </div>
         </div>
 
-        <button>Enviar</button>
+        <div className={styles.action}>
+          <div className={styles["action-content"]}>
+            <button type="submit">Enviar</button>
+          </div>
+        </div>
       </form>
     </div>
   );

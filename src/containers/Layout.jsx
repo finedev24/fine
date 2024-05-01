@@ -10,7 +10,8 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      {!isCanvasPage && <Header />}
+      {/* {!isCanvasPage && <Header />} */}
+      <Header/>
       <div className={styles.Layout}>{children}</div>
     </>
   );

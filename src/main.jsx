@@ -18,6 +18,7 @@ import Address from "./components/Address";
 import VehicleType from "./components/VehicleType";
 import SelectService from "./components/SelectService";
 import Addons from "./components/Addons.jsx";
+import Cart from "./pages/Cart.jsx";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,7 @@ const router = createBrowserRouter([
       { path: "/vehicle", element: <VehicleType /> },
       { path: "/services", element: <SelectService /> },
       { path: "/addons", element: <Addons /> },
+      { path: "/cart", element: <Cart /> },
       { path: "*", element: <NotFound /> },
     ],
   },

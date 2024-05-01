@@ -42,19 +42,34 @@ input[type="radio"]:checked::before {
 }
 
 .pb13 {
-  background: linear-gradient(90deg, #4E76EF 0%, #82CDD3 209.96%, #A0EEBC 319.74%);
+  background: linear-gradient(
+    90deg,
+    #4e76ef 0%,
+    #82cdd3 209.96%,
+    #a0eebc 319.74%
+  );
   height: 2vh;
   border-radius: 99px;
 }
 
 .pb23 {
-  background: linear-gradient(90deg, #4E76EF -109.87%, #82CDD3 98.36%, #A0EEBC 207.24%);
+  background: linear-gradient(
+    90deg,
+    #4e76ef -109.87%,
+    #82cdd3 98.36%,
+    #a0eebc 207.24%
+  );
   height: 2vh;
   border-radius: 99px;
 }
 
 .pb33 {
-  background: linear-gradient(90deg, #4E76EF -219.08%, #82CDD3 -9.55%, #A0EEBC 100%);
+  background: linear-gradient(
+    90deg,
+    #4e76ef -219.08%,
+    #82cdd3 -9.55%,
+    #a0eebc 100%
+  );
 
   height: 2vh;
   border-radius: 99px;
@@ -91,12 +106,21 @@ input[type="radio"]:checked::before {
   margin: 6px 0px;
 }
 
-.listSection button {
+.listSection .viewMore {
   background: none;
   color: #a0eebc;
   font-weight: 300;
   padding: 0px;
   margin-top: 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 14px;
+  text-decoration: underline;
+}
+
+.listSection .viewMore svg {
+  margin-left: 4px;
 }
 
 .list.selected {
@@ -147,4 +171,39 @@ input[type="radio"]:checked::before {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.listFeature {
+  padding: 12px 0px;
+}
+.featureItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  font-size: 14px;
+  padding: 2px 0px;
+  font-weight: 275;
+}
+
+.featureIcon {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.action {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  background: linear-gradient(180deg, rgba(11, 23, 31, 0) 0%, rgba(0,0,0,1) 70%);
+}
+
+.action button {
+  width: 100%;
+}
+
+.action-content {
+  padding: 24px;
 }

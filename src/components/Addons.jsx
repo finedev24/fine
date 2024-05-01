@@ -75,7 +75,7 @@ function Addons() {
     if (isValid) {
       dispatch({ type: "SET_ADDONS_DATA", data: { addon: selectedAddons } });
     }
-    navigate("/");
+    navigate("/cart");
     console.log(values);
   };
 
@@ -98,7 +98,7 @@ function Addons() {
                   selectedAddons.includes(addon.id) ? styles.selected : ""
                 }`}
                 onClick={() => {
-                  handleAddonClick(addon.id)
+                  handleAddonClick(addon.id);
                   document.getElementById(addon.id).click();
                 }}
               >
@@ -123,8 +123,11 @@ function Addons() {
             ))}
           </div>
         </div>
-
-        <button type="submit">Enviar</button>
+        <div className={styles.action}>
+          <div className={styles["action-content"]}>
+            <button type="submit">Enviar</button>
+          </div>
+        </div>
       </form>
     </div>
   );

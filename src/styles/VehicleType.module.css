@@ -126,3 +126,19 @@ input[type="radio"]:checked::before {
   );
   backdrop-filter: blur(6px);
 }
+
+.action {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  background: linear-gradient(180deg, rgba(11, 23, 31, 0) 0%, rgba(0,0,0,1) 70%);
+}
+
+.action button {
+  width: 100%;
+}
+
+.action-content {
+  padding: 24px;
+}

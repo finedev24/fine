@@ -41,7 +41,15 @@ function Address() {
           placeholder="Enter adress"
           {...register("address")}
         ></input>
-        <button>Enviar</button>
+        <div className={styles.action}>
+          <div className={styles["action-content"]}>
+            <div className={styles.action}>
+              <div className={styles["action-content"]}>
+                <button type="submit">Enviar</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </form>
     </div>
   );
