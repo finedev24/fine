@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { useRegFormContext } from "../providers/RegFormProvider";
 import { useNavigate } from "react-router-dom";
 
-import Order from "../components/Order";
+import Order from "./Order";
 
 function Address() {
   const navigate = useNavigate();

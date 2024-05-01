@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "../styles/Cart.module.css";
+import { useRegFormContext } from "../providers/RegFormProvider";
 import { SlArrowDown, SlArrowUp } from "react-icons/sl";
 import { FaCheck, FaRegCheckCircle, FaArrowRight } from "react-icons/fa";
 import { SlArrowRightCircle } from "react-icons/sl";
@@ -13,6 +14,8 @@ function Cart() {
       [serviceId]: !prevMap[serviceId],
     }));
   };
+
+  const [order] = useRegFormContext();
 
   return (
     <div>

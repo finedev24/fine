@@ -5,32 +5,32 @@ export const useRegFormContext = () => {
     return useContext(RegFormContext);
 }
 
-const reducer = (state, action) => {
+const reducer = (order, action) => {
     // { type, data }
     switch (action.type) {
         case 'SET_ADDRES_DATA': {
-            return { ...state, address: { ...action.data } };
+            return { ...order, address: { ...action.data } };
         }
         case 'SET_VEHICLE_DATA': {
-            return { ...state, vehicle: { ...action.data } };
+            return { ...order, vehicle: { ...action.data } };
         }
         case 'SET_SERVICE_DATA': {
-            return { ...state, service: { ...action.data } };
+            return { ...order, service: { ...action.data } };
         }
         case 'SET_ADDONS_DATA': {
-            return { ...state, service: { ...action.data } };
+            return { ...order, service: { ...action.data } };
         }
         case 'CHANGE_PERCENT': {
-            return { ...state, percent: action.data };
+            return { ...order, percent: action.data };
         }
     }
-    return state;
+    return order;
 }
 
 const RegFormProvider = ({ children }) => {
-    const [state, dispatch] = useReducer(reducer, { percent: 0 });
+    const [order, dispatch] = useReducer(reducer, { percent: 0 });
 
-    return <RegFormContext.Provider value={[state, dispatch]}>
+    return <RegFormContext.Provider value={[order, dispatch]}>
         {children}
     </RegFormContext.Provider>
 }

@@ -8,17 +8,15 @@ import {
   createBrowserRouter,
 } from "react-router-dom";
 import RegFormProvider from "./providers/RegFormProvider.jsx";
-
 import Layout from "./containers/Layout.jsx";
-
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
-import Address from "./components/Address";
-import VehicleType from "./components/VehicleType";
+import SelectAddress from "./components/SelectAddress";
+import SelectVehicle from "./components/SelectVehicle";
 import SelectService from "./components/SelectService";
-import Addons from "./components/Addons.jsx";
-import Cart from "./pages/Cart.jsx";
+import Addons from "./components/Addons";
+import Cart from "./pages/Cart";
 
 const router = createBrowserRouter([
   {
@@ -27,8 +25,8 @@ const router = createBrowserRouter([
     children: [
       { path: "/", element: <Home /> },
       { path: "/login", element: <Login /> },
-      { path: "/address", element: <Address /> },
-      { path: "/vehicle", element: <VehicleType /> },
+      { path: "/address", element: <SelectAddress /> },
+      { path: "/vehicle", element: <SelectVehicle /> },
       { path: "/services", element: <SelectService /> },
       { path: "/addons", element: <Addons /> },
       { path: "/cart", element: <Cart /> },
