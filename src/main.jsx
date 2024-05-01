@@ -15,7 +15,8 @@ import NotFound from "./pages/NotFound";
 import SelectAddress from "./components/SelectAddress";
 import SelectVehicle from "./components/SelectVehicle";
 import SelectService from "./components/SelectService";
-import Addons from "./components/Addons";
+import SelectAddons from "./components/SelectAddons";
+import SelectDateBooking from "./components/SelectDateBooking";
 import Cart from "./pages/Cart";
 
 const router = createBrowserRouter([
@@ -28,8 +29,9 @@ const router = createBrowserRouter([
       { path: "/address", element: <SelectAddress /> },
       { path: "/vehicle", element: <SelectVehicle /> },
       { path: "/services", element: <SelectService /> },
-      { path: "/addons", element: <Addons /> },
+      { path: "/addons", element: <SelectAddons /> },
       { path: "/cart", element: <Cart /> },
+      { path: "/date", element: <SelectDateBooking /> },
       { path: "*", element: <NotFound /> },
     ],
   },

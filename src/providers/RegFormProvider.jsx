@@ -6,7 +6,6 @@ export const useRegFormContext = () => {
 }
 
 const reducer = (order, action) => {
-    // { type, data }
     switch (action.type) {
         case 'SET_ADDRES_DATA': {
             return { ...order, address: { ...action.data } };

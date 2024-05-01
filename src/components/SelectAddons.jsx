@@ -75,7 +75,7 @@ function Addons() {
     if (isValid) {
       dispatch({ type: "SET_ADDONS_DATA", data: { addon: selectedAddons } });
     }
-    navigate("/cart");
+    navigate("/date");
     console.log(values);
   };
 
